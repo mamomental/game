@@ -1,4 +1,4 @@
-class Cactus = {
+class Cactus {
   constructor() {
   	x : 500,
   	y : 200,
