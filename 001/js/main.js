@@ -1,5 +1,5 @@
 import {DINO} from "./dino.js";
-import {CACTUS} from "./cactus.js";
+import {Cactus} from "./cactus.js";
 
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
