@@ -11,7 +11,7 @@ var dino = {
 	height : 50,
 	draw() {
 		ctx.fillStyle = 'green';
-		ctx.fillRect(10, 10, 100, 100);
+		ctx.fillRect(this.x, this.y, this.width, this.height);
 	}
 }
 dino.draw();
