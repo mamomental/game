@@ -14,8 +14,8 @@ function runFrame() {
   timer++;
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  DINOMANAGER.draw(ctx, timer);
-  CACTUSMANAGER.draw(ctx);
+  DINOMANAGER.draw(ctx);
+  CACTUSMANAGER.draw(ctx, timer);
 }
 
 runFrame();
