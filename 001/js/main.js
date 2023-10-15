@@ -7,13 +7,22 @@ var ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth - 100;
 canvas.height = window.innerHeight - 100;
 
+var timer = 0;
+var cactusArray = [];
 function runFrame() {
   requestAnimationFrame(runFrame);
-
+  timer++;
   ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  if (timer % 120 === 0) {
+    cactusArray.push(new CACTUS());
+  }
+  cactusArray.forEacch((a)=> {
+    a.draw();
+  });
+  
   DINO.x++;
   DINO.draw(ctx);
-  cactus.draw(ctx);
 }
 
 runFrame();
