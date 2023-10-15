@@ -1,5 +1,5 @@
 import {DINOMANAGER} from "./dino.js";
-import {Cactus} from "./cactus.js";
+import {CACTUSMANAGER} from "./cactus.js";
 
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
