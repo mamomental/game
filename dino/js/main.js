@@ -10,10 +10,12 @@ canvas.height = window.innerHeight - 100;
 function runFrame() {
   requestAnimationFrame(runFrame);
 
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
   DINO.x++;
   DINO.draw(ctx);
-cactus.draw(ctx);
 
 }
+
+cactus.draw(ctx);
 
 runFrame();
