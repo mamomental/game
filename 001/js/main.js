@@ -19,7 +19,7 @@ function runFrame() {
   }
   cactusArray.forEacch((a)=> {
     a.x--;
-    a.draw();
+    a.draw(ctx);
   });
   
   DINO.draw(ctx);
