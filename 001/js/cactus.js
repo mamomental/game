@@ -12,8 +12,15 @@ class CACTUS {
 }
 
 export var CACTUSMANAGER = {
-	cactus : new CACTUS(),
-	draw(ctx) {
-		this.cactus.draw(ctx);
+	cactusArray : [],
+	draw(ctx, timer) {
+		if (timer % 120 === 0) {
+			cactusArray.push(new CACTUS());
+		}
+
+		cactusArray.forEach((a)=> {
+			a.x--;
+			a.draw(ctx);
+		});
 	}
 }
