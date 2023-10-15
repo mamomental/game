@@ -18,7 +18,7 @@ export var CACTUSMANAGER = {
 			cactusArray.push(new CACTUS());
 		}
 
-		cactusArray.forEach((a)=> {
+		this.cactusArray.forEach((a)=> {
 			a.x--;
 			a.draw(ctx);
 		});
