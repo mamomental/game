@@ -8,21 +8,13 @@ canvas.width = window.innerWidth - 100;
 canvas.height = window.innerHeight - 100;
 
 var timer = 0;
-var cactusArray = [];
+
 function runFrame() {
   requestAnimationFrame(runFrame);
-//  timer++;
+  timer++;
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-//  if (timer % 120 === 0) {
-//    cactusArray.push(new Cactus());
-//  }
-//  cactusArray.forEach((a)=> {
-//    a.x--;
-//    a.draw(ctx);
-//  });
-  
-  DINOMANAGER.draw(ctx);
+  DINOMANAGER.draw(ctx, timer);
   CACTUSMANAGER.draw(ctx);
 }
 
