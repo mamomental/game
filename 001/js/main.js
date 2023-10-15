@@ -1,4 +1,4 @@
-import {DINO} from "./dino.js";
+import {DINOMANAGER} from "./dino.js";
 import {Cactus} from "./cactus.js";
 
 var canvas = document.getElementById('canvas');
@@ -10,19 +10,19 @@ canvas.height = window.innerHeight - 100;
 var timer = 0;
 var cactusArray = [];
 function runFrame() {
-  requestAnimationFrame(runFrame);
-  timer++;
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+//  requestAnimationFrame(runFrame);
+//  timer++;
+//  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  if (timer % 120 === 0) {
-    cactusArray.push(new Cactus());
-  }
-  cactusArray.forEach((a)=> {
-    a.x--;
-    a.draw(ctx);
-  });
+//  if (timer % 120 === 0) {
+//    cactusArray.push(new Cactus());
+//  }
+//  cactusArray.forEach((a)=> {
+//    a.x--;
+//    a.draw(ctx);
+//  });
   
-  DINO.draw(ctx);
+  DINOMANAGER.draw(ctx);
 }
 
 runFrame();
