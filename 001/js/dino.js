@@ -12,7 +12,7 @@ class DINO {
 }
 
 export var DINOMANAGER = {
-	dino = new DINO(),
+	dino : new DINO(),
 	draw(ctx) {
 		this.dino.draw(ctx);
 	}
