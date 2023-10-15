@@ -1,4 +1,4 @@
-const DINO = {
+export const DINO = {
 	x : 10,
 	y : 200,
 	width : 50,
@@ -8,5 +8,3 @@ const DINO = {
 		ctx.fillRect(this.x, this.y, this.width, this.height);
 	}
 }
-
-export default DINO;
