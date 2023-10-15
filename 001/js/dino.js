@@ -1,4 +1,4 @@
-var dino = {
+const DINO = {
 	x : 10,
 	y : 200,
 	width : 50,
@@ -9,4 +9,4 @@ var dino = {
 	}
 }
 
-export default dino;
+export default DINO;
