@@ -17,7 +17,7 @@ function runFrame() {
   if (timer % 120 === 0) {
     cactusArray.push(new Cactus());
   }
-  cactusArray.forEacch((a)=> {
+  cactusArray.forEach((a)=> {
     a.x--;
     a.draw(ctx);
   });
