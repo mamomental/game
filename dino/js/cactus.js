@@ -1,9 +1,9 @@
 class Cactus {
   constructor() {
-  	x : 500,
-  	y : 200,
-  	width : 50,
-  	height : 50
+  	this.x = 500;
+  	this.y = 200;
+  	this.width = 50;
+  	this.height = 50;
   }
 	draw(ctx) {
 		ctx.fillStyle = 'green';
