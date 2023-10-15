@@ -15,7 +15,7 @@ export var CACTUSMANAGER = {
 	cactusArray : [],
 	draw(ctx, timer) {
 		if (timer % 120 === 0) {
-			cactusArray.push(new CACTUS());
+			this.cactusArray.push(new CACTUS());
 		}
 
 		this.cactusArray.forEach((a)=> {
