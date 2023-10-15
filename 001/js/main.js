@@ -23,6 +23,7 @@ function runFrame() {
 //  });
   
   DINOMANAGER.draw(ctx);
+  CACTUSMANAGER.draw(ctx);
 }
 
 runFrame();
