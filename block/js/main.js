@@ -7,6 +7,7 @@ let dx = 2;
 let dy = -2;
 
 function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.beginPath();
   ctx.arc(5x y, 10, 0, Math.PI * 2);
   ctx.fillStyle = "#0095DD";
