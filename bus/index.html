@@ -11,11 +11,12 @@
 	<script src="./js/main.js"></script>
     </head>
     <body>
-	<div class='bus' stationId='206000544' routeId='234000310' staOrder='98'>퇴근-화랑공원남편-1009</div>
-	<table>
+	<table id="bustable">
 		<caption>도착 정보</caption>
 		<thead>
 		  <tr>
+		  <th scope="col">정거장</th>
+		  <th scope="col">버스</th>
 			<th scope="col">순서</th>
 			<th scope="col">몇 분 후</th>
 			<th scope="col">몇 정거장 전</th>
@@ -23,18 +24,6 @@
 		  </tr>
 		</thead>
 		<tbody>
-		  <tr>
-			<th scope="row">1번째</th>
-			<td id='predictTime1'></td>
-			<td id='locationNo1'></td>
-			<td id='remainSeatCnt1'></td>
-		  </tr>
-		  <tr>
-			<th scope="row">2번째</th>
-			<td id='predictTime2'></td>
-			<td id='locationNo2'></td>
-			<td id='remainSeatCnt2'></td>
-		  </tr>
 		</tbody>
 	</table>
     </body>
