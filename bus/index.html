@@ -6,11 +6,36 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>BUS</title>
         <link rel="shortcut icon" href="#">
-		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-		<script src="./js/main.js"></script>
+	<link rel="stylesheet" href="./css/main.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="./js/main.js"></script>
     </head>
     <body>
-	<div class='bus' stationId='206000544' routeId='234000310' staOrder='98'>화랑공원남편 : 퇴근</div>
-	<div class='bus' stationId='stationId' routeId='routeId' staOrder='staOrder'>테스트</div>
+	<div class='bus' stationId='206000544' routeId='234000310' staOrder='98'>퇴근-화랑공원남편-1009</div>
+	<table>
+		<caption>도착 정보</caption>
+		<thead>
+		  <tr>
+			<th scope="col">순서</th>
+			<th scope="col">몇 분 후</th>
+			<th scope="col">몇 정거장 전</th>
+			<th scope="col">남은 자리</th>
+		  </tr>
+		</thead>
+		<tbody>
+		  <tr>
+			<th scope="row">1번째</th>
+			<td id='predictTime1'></td>
+			<td id='locationNo1'></td>
+			<td id='remainSeatCnt1'></td>
+		  </tr>
+		  <tr>
+			<th scope="row">2번째</th>
+			<td id='predictTime2'></td>
+			<td id='locationNo2'></td>
+			<td id='remainSeatCnt2'></td>
+		  </tr>
+		</tbody>
+	</table>
     </body>
 </html>
