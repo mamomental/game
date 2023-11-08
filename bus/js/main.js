@@ -6,37 +6,36 @@ jQuery(document).ready(function($) {
 			$.ajax(options);
 		}
 		
-		var _parseData = function(xml, routeId, busNo) {
-			console.log(xml);
+		var _parseData = function(xml, bus) {
 			$(xml).find('busArrivalList').each(function(index){ 
-                var rId = $(this).find('routeId').text();
-				if (rId == routeId) {
+                var routeId = $(this).find('routeId').text();
+				if (routeId == bus.routeId) {
 					// 몇 번째 전
-					$('#location-'+busNo+'-1').text($(this).find('locationNo1').text());
-					$('#location-'+busNo+'-2').text($(this).find('locationNo2').text());
+					$('#location-'+bus.busNo+'-1').text($(this).find('locationNo1').text());
+					$('#location-'+bus.busNo+'-2').text($(this).find('locationNo2').text());
 					// 몇 분 후
-					$('#time-'+busNo+'-1').text($(this).find('predictTime1').text());
-					$('#time-'+busNo+'-2').text($(this).find('predictTime2').text());
+					$('#time-'+bus.busNo+'-1').text($(this).find('predictTime1').text());
+					$('#time-'+bus.busNo+'-2').text($(this).find('predictTime2').text());
 					// 빈 자리
-					$('#seat-'+busNo+'-1').text($(this).find('remainSeatCnt1').text());
-					$('#seat-'+busNo+'-2').text($(this).find('remainSeatCnt2').text());
+					$('#seat-'+bus.busNo+'-1').text($(this).find('remainSeatCnt1').text());
+					$('#seat-'+bus.busNo+'-2').text($(this).find('remainSeatCnt2').text());
 				}
 			});
 		}
 
 		return {
-			search : function(busNo, stationId, routeId, staOrder) {
+			search : function(bus) {
 				var options = {
 					url:'https://apis.data.go.kr/6410000/busarrivalservice/getBusArrivalList',
 					type: 'get',
 					data:{
-						'serviceKey':'gJEu1BoleMqG5NN+QtCILoPjgDq2w13LP1V+zpR5QnCIqy73AGgPYInJcj67U+8T3A7YUPJ88jg423EQriZW8w==',
-						'stationId':stationId,
-						'routeId':routeId,
-						'staOrder':staOrder},
+						'serviceKey':bus.serviceKey,
+						'stationId':bus.stationId,
+						'routeId':bus.routeId,
+						'staOrder':bus.staOrder},
 					dataType:'xml',
 					success : function (result) {
-						_parseData(result, routeId, busNo);
+						_parseData(result, bus);
 					},
 					error: function(xhr,status,error){
 						console.log('code:'+xhr.status);
@@ -55,7 +54,7 @@ jQuery(document).ready(function($) {
 	};
 	var config = {
 		buses : [
-			{'title':'퇴근-화랑공원남편-1009','stationName':'화랑공원남편','busNo':'1009','stationId':'206000544','routeId':'234000310','staOrder':'234000310'}
+			{'title':'퇴근-화랑공원남편-1009','serviceKey':'gJEu1BoleMqG5NN+QtCILoPjgDq2w13LP1V+zpR5QnCIqy73AGgPYInJcj67U+8T3A7YUPJ88jg423EQriZW8w==','stationName':'화랑공원남편','busNo':'1009','stationId':'206000544','routeId':'234000310','staOrder':'234000310'}
 		],
 		msg : {
 			SUCCESS:'성공했습니다.',
@@ -68,13 +67,11 @@ jQuery(document).ready(function($) {
 	
 	$(document).ready(function() {
 		$.each(config.buses, function(i, item) {
-				console.log(item);
-	
 				$('#bustable > tbody:last').append('<tr><th scope="row">'+item.stationName+'</th><th scope="row">'+item.busNo+'번</th><th scope="row">1번째</th><td id="time-'+item.busNo+'-1"></td><td id="location-'+item.busNo+'-1"></td><td id="seat-'+item.busNo+'-1"></td></tr>');
 				$('#bustable > tbody:last').append('<tr><th scope="row">'+item.stationName+'</th><th scope="row">'+item.busNo+'번</th><th scope="row">2번째</th><td id="time-'+item.busNo+'-2"></td><td id="location-'+item.busNo+'-2"></td><td id="seat-'+item.busNo+'-2"></td></tr>');
 		});
-		$.each(config.buses, function(i, item) {
-				$.busController.search(item.busNo, item.stationId, item.routeId, item.staOrder);
+		$.each(config.buses, function(i, bus) {
+				$.busController.search(bus);
 		});
 	});
 	$.busController = BusController(config);
