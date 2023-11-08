@@ -6,6 +6,19 @@ jQuery(document).ready(function($) {
 			$.ajax(options);
 		}
 
+		var _parseData = function(data) {
+			console.log('0');
+			console.log(result);
+			console.log('1');
+			var xmlDoc = $.parseXML(data);
+			console.log('2');
+			console.log(xmlDoc);
+			$(xmlDoc).find('busArrivalList').each(function(index){
+                		var routeId = $(this).find('routeId').text();
+				console.log(routeId);
+			});
+		}
+
 		return {
 			search : function(stationId, routeId, staOrder) {
 				var options = {
@@ -17,7 +30,7 @@ jQuery(document).ready(function($) {
 						'routeId':routeId,
 						'staOrder':staOrder},
 					success : function (result) {
-						console.log(result);
+						_parseData(result);
 					},
 					error: function(xhr,status,error){
 						console.log('code:'+xhr.status);
