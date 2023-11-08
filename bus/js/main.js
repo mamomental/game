@@ -6,16 +6,21 @@ jQuery(document).ready(function($) {
 			$.ajax(options);
 		}
 
-		var _parseData = function(data) {
-			console.log('0');
-			console.log(result);
-			console.log('1');
-			var xmlDoc = $.parseXML(data);
-			console.log('2');
-			console.log(xmlDoc);
-			$(xmlDoc).find('busArrivalList').each(function(index){
-                		var routeId = $(this).find('routeId').text();
-				console.log(routeId);
+		var _parseData = function(xml, routeId) {
+			console.log(xml);
+			$(xml).find('busArrivalList').each(function(index){ 
+                	var rId = $(this).find('routeId').text();
+				if (rId == routeId) {
+					// 몇 번째 전
+					$('#locationNo1').text($(this).find('locationNo1').text());
+					$('#locationNo2').text($(this).find('locationNo2').text());
+					// 몇 분 후
+					$('#predictTime1').text($(this).find('predictTime1').text());
+					$('#predictTime2').text($(this).find('predictTime2').text());
+					// 빈 자리
+					$('#remainSeatCnt1').text($(this).find('remainSeatCnt1').text());
+					$('#remainSeatCnt2').text($(this).find('remainSeatCnt2').text());
+				}
 			});
 		}
 
