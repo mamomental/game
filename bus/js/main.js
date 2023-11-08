@@ -9,7 +9,7 @@ jQuery(document).ready(function($) {
 		return {
 			search : function() {
 				var options = {
-					url:'http://apis.data.go.kr/6410000/busarrivalservice/getBusArrivalList',
+					url:'https://apis.data.go.kr/6410000/busarrivalservice/getBusArrivalList',
 					type: 'get',
 					data:{
 						'serviceKey':'gJEu1BoleMqG5NN+QtCILoPjgDq2w13LP1V+zpR5QnCIqy73AGgPYInJcj67U+8T3A7YUPJ88jg423EQriZW8w==',
