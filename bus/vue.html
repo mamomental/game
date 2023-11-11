@@ -1,24 +1,29 @@
 <!doctype html>
 <html>
-
-<head>
-  <title>Hello Vue.js</title>
-</head>
-
-<body>  
-<div id="app">
-  <h1>Hello {{ str }} world!</h1>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script>
-var app = new Vue({
-  el: '#app',
-  data: {
-    str: 'Vue.js'
-  }
-})
-</script>
-</body>
-
+	<head>
+		<title>Hello Vue.js</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="./css/main.css">
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<!--
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	-->
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="./js/bustable.js"></script>
+	</head>
+	<body>  
+		<div id="app">
+			<bus-table></bus-table>
+		</div>
+		<script>
+			var datas = {
+				str: 'Vue.js'
+			}
+			var vueConfigs = {
+			  el: '#app',
+			  data: datas
+			};
+			var app = new Vue(vueConfigs);
+		</script>
+	</body>
 </html>

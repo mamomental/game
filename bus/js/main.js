@@ -91,6 +91,8 @@ jQuery(document).ready(function($) {
 	});
 	
 	$(document).ready(function() {
+		$('#bustable > thead').append('<tr><th scope="col">정거장</th><th scope="col">버스</th><th scope="col">순서</th><th scope="col">몇 분 후</th><th scope="col">몇 정거장 전</th><th scope="col">남은 자리</th></tr>');
+		
 		$.each(config.buses, function(i, item) {
 				$('#bustable > tbody:last').append('<tr><th scope="row">'+item.stationName+'</th><th scope="row">'+item.busNo+'번</th><th scope="row">1번째</th><td id="time-'+item.busNo+'-1"></td><td id="location-'+item.busNo+'-1"></td><td id="seat-'+item.busNo+'-1"></td></tr>');
 				$('#bustable > tbody:last').append('<tr><th scope="row">'+item.stationName+'</th><th scope="row">'+item.busNo+'번</th><th scope="row">2번째</th><td id="time-'+item.busNo+'-2"></td><td id="location-'+item.busNo+'-2"></td><td id="seat-'+item.busNo+'-2"></td></tr>');
@@ -98,8 +100,6 @@ jQuery(document).ready(function($) {
 		$.each(config.buses, function(i, bus) {
 				$.busController.search(bus);
 		});
-		
-		$.busController.test(config.buses[0]);
 	});
 	$.busController = BusController(config);
 });
