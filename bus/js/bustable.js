@@ -45,7 +45,8 @@ Vue.component('busTable', {
 				{'serviceKey':'gJEu1BoleMqG5NN+QtCILoPjgDq2w13LP1V+zpR5QnCIqy73AGgPYInJcj67U+8T3A7YUPJ88jg423EQriZW8w==','stationName':'화랑공원남편','busNo':'1009','stationId':'206000544','routeId':'234000310','staOrder':'98'}
 				],
 				seoul : [
-				{'serviceKey':'gJEu1BoleMqG5NN+QtCILoPjgDq2w13LP1V+zpR5QnCIqy73AGgPYInJcj67U+8T3A7YUPJ88jg423EQriZW8w==','stationName':'예제정류소','busNo':'예제버스','stationId':'124000414','routeId':'100100578','staOrder':'29'}
+				{'serviceKey':'gJEu1BoleMqG5NN+QtCILoPjgDq2w13LP1V+zpR5QnCIqy73AGgPYInJcj67U+8T3A7YUPJ88jg423EQriZW8w==','stationName':'위례동주민센터.위례송파푸르지오','busNo':'333','stationId':'123000619','routeId':'100100496','staOrder':'10'},
+				{'serviceKey':'gJEu1BoleMqG5NN+QtCILoPjgDq2w13LP1V+zpR5QnCIqy73AGgPYInJcj67U+8T3A7YUPJ88jg423EQriZW8w==','stationName':'위례동주민센터.위례송파푸르지오','busNo':'440','stationId':'123000619','routeId':'100100459','staOrder':'10'}
 				]
 			}
 		}
@@ -65,7 +66,7 @@ Vue.component('busTable', {
 				if (0 >= this.timer.counter) {
 					this.tableRow = [];
 					this.searchGyeonggi();
-					//		this.searchSeoul();
+					this.searchSeoul();
 					this.timer.counter = this.timer.counterBase;
 				}
 			}, 1000);
