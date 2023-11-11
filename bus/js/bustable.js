@@ -1,5 +1,7 @@
 Vue.component('busTable', {
 	template: `
+	<span>
+	<span>{{this.timer.counter}}</span>
 	<table id="bustable">
 		<caption>도착 정보</caption>
 		<thead>
@@ -23,36 +25,74 @@ Vue.component('busTable', {
 			</tr>
 		</tbody>
 	</table>
+	</span>
 	`,
 	props:['params'],
 	data() {
 		return {
 			url : {
-				gg : 'https://apis.data.go.kr/6410000/busarrivalservice/getBusArrivalList'
+				gyeonggi : 'https://apis.data.go.kr/6410000/busarrivalservice/getBusArrivalList',
+				seoul : 'http://ws.bus.go.kr/api/rest/arrive/getArrInfoByRoute'
 			},
 			tableRow : [],
-			buses : [
-			{'title':'퇴근-화랑공원남편-1009','serviceKey':'gJEu1BoleMqG5NN+QtCILoPjgDq2w13LP1V+zpR5QnCIqy73AGgPYInJcj67U+8T3A7YUPJ88jg423EQriZW8w==','stationName':'화랑공원남편','busNo':'1009','stationId':'206000544','routeId':'234000310','staOrder':'98'}
-		]
+			timer : {
+				timer : null,
+				counterBase : 30,
+				counter : 0
+			},
+			buses : {
+				gyeonggi : [
+				{'serviceKey':'gJEu1BoleMqG5NN+QtCILoPjgDq2w13LP1V+zpR5QnCIqy73AGgPYInJcj67U+8T3A7YUPJ88jg423EQriZW8w==','stationName':'화랑공원남편','busNo':'1009','stationId':'206000544','routeId':'234000310','staOrder':'98'}
+				],
+				seoul : [
+				{'serviceKey':'gJEu1BoleMqG5NN+QtCILoPjgDq2w13LP1V+zpR5QnCIqy73AGgPYInJcj67U+8T3A7YUPJ88jg423EQriZW8w==','stationName':'예제정류소','busNo':'예제버스','stationId':'124000414','routeId':'100100578','staOrder':'29'}
+				]
+			}
 		}
 	},
 	created() {
-		this.search();
+		this.tableRow = [];
+		this.startTimer();
+
+	},
+	mounted : function (){
+		
 	},
 	methods : {
-		search : function() {
-			axios.get(this.url.gg, {
+		startTimer : function() {
+			var interval = setInterval(() => {
+				this.timer.counter--;
+				if (0 >= this.timer.counter) {
+					this.tableRow = [];
+					this.searchGyeonggi();
+					//		this.searchSeoul();
+					this.timer.counter = this.timer.counterBase;
+				}
+			}, 1000);
+			return interval;
+		},
+		searchGyeonggi : function() {
+			for (var i = 0; i < this.buses.gyeonggi.length; i++) {
+				this.search('g', this.url.gyeonggi, this.buses.gyeonggi[i]);
+			}
+		},
+		searchSeoul : function() {
+			for (var i = 0; i < this.buses.seoul.length; i++) {
+				this.search('s', this.url.seoul, this.buses.seoul[i]);
+			}
+		},
+		search : function(region, url, bus) {
+			axios.get(url, {
 				params:{
-					serviceKey:this.buses[0].serviceKey,
-					stationId:this.buses[0].stationId,
-					routeId:this.buses[0].routeId,
-					staOrder:this.buses[0].staOrder}
+					serviceKey:bus.serviceKey,
+					stationId:bus.stationId,
+					routeId:bus.routeId,
+					staOrder:bus.staOrder}
 				}
 			)
 			.then(response => {
-				this.tableRow = [];
 				var xml = this.parseXml(response.data);
-				var json = this.xmlToJson(xml, this.buses[0]);
+				var json = this.xmlToJson(region, xml, bus);
 			})
 			.catch(error => {
 			  console.log(error);
@@ -62,27 +102,29 @@ Vue.component('busTable', {
 			var parser = new DOMParser();
 			return parser.parseFromString(xml, "text/xml");
 		},
-		xmlToJson(xml, bus) {
-			var list = xml.getElementsByTagName('busArrivalList');
+		xmlToJson(region, xml, bus) {
 			var result = [];
-			for (var i = 0; i < list.length; i++) {
-				if (list[i].getElementsByTagName('routeId')[0].childNodes[0].nodeValue == bus.routeId) {
-					this.tableRow.push({
-						'stationName':bus.stationName,
-						'busNo':bus.busNo,
-						'busOrder':'첫번째',
-						'locationNo':list[i].getElementsByTagName('locationNo1')[0].childNodes[0].nodeValue,
-						'predictTime':list[i].getElementsByTagName('predictTime1')[0].childNodes[0].nodeValue,
-						'remainSeatCnt':list[i].getElementsByTagName('remainSeatCnt1')[0].childNodes[0].nodeValue,
-					});
-					this.tableRow.push({
-						'stationName':bus.stationName,
-						'busNo':bus.busNo,
-						'busOrder':'두번째',
-						'locationNo':list[i].getElementsByTagName('locationNo2')[0].childNodes[0].nodeValue,
-						'predictTime':list[i].getElementsByTagName('predictTime2')[0].childNodes[0].nodeValue,
-						'remainSeatCnt':list[i].getElementsByTagName('remainSeatCnt2')[0].childNodes[0].nodeValue
-					});
+			if (region == 'g') {
+				var list = xml.getElementsByTagName('busArrivalList');
+				for (var i = 0; i < list.length; i++) {
+					if (list[i].getElementsByTagName('routeId')[0].childNodes[0].nodeValue == bus.routeId) {
+						this.tableRow.push({
+							'stationName':bus.stationName,
+							'busNo':bus.busNo,
+							'busOrder':'첫번째',
+							'locationNo':list[i].getElementsByTagName('locationNo1')[0].childNodes[0].nodeValue,
+							'predictTime':list[i].getElementsByTagName('predictTime1')[0].childNodes[0].nodeValue,
+							'remainSeatCnt':list[i].getElementsByTagName('remainSeatCnt1')[0].childNodes[0].nodeValue,
+						});
+						this.tableRow.push({
+							'stationName':bus.stationName,
+							'busNo':bus.busNo,
+							'busOrder':'두번째',
+							'locationNo':list[i].getElementsByTagName('locationNo2')[0].childNodes[0].nodeValue,
+							'predictTime':list[i].getElementsByTagName('predictTime2')[0].childNodes[0].nodeValue,
+							'remainSeatCnt':list[i].getElementsByTagName('remainSeatCnt2')[0].childNodes[0].nodeValue
+						});
+					}
 				}
 			}
 			return result;
