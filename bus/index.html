@@ -1,20 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>BUS</title>
-        <link rel="shortcut icon" href="#">
-	<link rel="stylesheet" href="./css/main.css">
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script src="./js/main.js"></script>
-    </head>
-    <body>
-	<table id="bustable">
-		<caption>도착 정보</caption>
-		<thead></thead>
-		<tbody></tbody>
-	</table>
-    </body>
+<!doctype html>
+<html>
+	<head>
+		<title>출퇴근 버스</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="./css/main.css">
+	<!--
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	-->
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="./js/gyeonggi.js"></script>
+		<script src="./js/seoul.js"></script>
+	</head>
+	<body>  
+		<div id="app">
+			<gyeonggi></gyeonggi>
+			<hr />
+			<seoul></seoul>
+		</div>
+		<script>
+			var datas = {
+				str: 'Vue.js'
+			}
+			var vueConfigs = {
+			  el: '#app',
+			  data: datas
+			};
+			var app = new Vue(vueConfigs);
+		</script>
+	</body>
 </html>
