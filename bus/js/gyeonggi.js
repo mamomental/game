@@ -98,17 +98,17 @@ Vue.component('gyeonggi', {
 						'stationName':bus.stationName,
 						'busNo':bus.busNo,
 						'busOrder':'첫번째',
-						'locationNo':list[i].getElementsByTagName('locationNo1')[0].childNodes[0],
-						'predictTime':list[i].getElementsByTagName('predictTime1')[0].childNodes[0],
-						'remainSeatCnt':list[i].getElementsByTagName('remainSeatCnt1')[0].childNodes[0],
+						'locationNo':list[i].getElementsByTagName('locationNo1')[0].childNodes[0].nodeValue,
+						'predictTime':list[i].getElementsByTagName('predictTime1')[0].childNodes[0].nodeValue,
+						'remainSeatCnt':list[i].getElementsByTagName('remainSeatCnt1')[0].childNodes[0].nodeValue
 					});
 					this.tableRow.push({
 						'stationName':bus.stationName,
 						'busNo':bus.busNo,
 						'busOrder':'두번째',
-						'locationNo':list[i].getElementsByTagName('locationNo2')[0].childNodes[0],
-						'predictTime':list[i].getElementsByTagName('predictTime2')[0].childNodes[0],
-						'remainSeatCnt':list[i].getElementsByTagName('remainSeatCnt2')[0].childNodes[0]
+						'locationNo':list[i].getElementsByTagName('locationNo2')[0].childNodes[0].nodeValue,
+						'predictTime':list[i].getElementsByTagName('predictTime2')[0].childNodes[0].nodeValue,
+						'remainSeatCnt':list[i].getElementsByTagName('remainSeatCnt2')[0].childNodes[0].nodeValue
 					});
 				}
 			}
