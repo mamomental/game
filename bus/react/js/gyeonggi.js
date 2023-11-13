@@ -1,11 +1,6 @@
-export default class Gyeonggi extends React.Component {
-	render() {
-		return (
-		<div>
-			<h1>Gyeonggi!</h1>
-		</div>
-		);
-	}
-}
+import React from "react";
 
+const Gyeonggi = () => <h1>Gyeonggi</h1>;
+
+export default Gyeonggi;
 
