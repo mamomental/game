@@ -6,6 +6,7 @@
 		<link rel="stylesheet" href="./css/main.css">
 		<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="./js/vue3/gyeonggi.js"></script>
 	</head>
 	<body>  
 		<div id="app">
@@ -13,13 +14,10 @@
 		</div>
 		<script>
 			import { createApp } from 'vue'
-			import gyeonggi from './js/vue3/gyeonggi.js'
 			
 			createApp({
-			    data() {
-			      return {
-			        message: 'Hello Vue!'
-			      }
+			    components: {
+				    'gyeonggi':gyeonggi
 			    }
 			  }).mount('#app')
 		</script>
