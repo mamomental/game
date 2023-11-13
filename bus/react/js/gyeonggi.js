@@ -1,5 +1,9 @@
-export defaul function Gyeonggi() {
-    return (
-      <div>Gyeonggi</div>
-    );
+class Gyeonggi extends React.Component {
+    render() {
+        return (
+          <div>Gyeonggi</div>
+        );
+    }
 }
+
+export default Gyeonggi;
