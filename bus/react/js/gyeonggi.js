@@ -7,5 +7,3 @@ class Gyeonggi extends React.Component {
 		);
 	}
 }
-
-export default Gyeonggi;
