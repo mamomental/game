@@ -64,7 +64,7 @@ const gyeonggi = {
 			var result = [];
 			var list = xml.getElementsByTagName('busArrivalList');
 			for (var i = 0; i < list.length; i++) {
-				if (list[i].getElementsByTagName('routeId')[0].childNodes[0].nodeValue == bus.routeId) {
+				if (list[i].getElementsByTagName('routeId')[0].childNodes[0].nodeValue != 'undefined' && list[i].getElementsByTagName('routeId')[0].childNodes[0].nodeValue == bus.routeId) {
 					this.tableRow.push({
 						'stationName':bus.stationName,
 						'busNo':bus.busNo,
