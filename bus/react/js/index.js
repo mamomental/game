@@ -1,3 +1,5 @@
+import Gyeonggi from './gyeonggi';
+
 class App extends React.Component {
 	render() {
 		return (
