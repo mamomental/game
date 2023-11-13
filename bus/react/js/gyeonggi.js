@@ -1,4 +1,4 @@
-class Gyeonggi extends React.Component {
+export default class Gyeonggi extends React.Component {
 	render() {
 		return (
 		<div>
@@ -7,3 +7,5 @@ class Gyeonggi extends React.Component {
 		);
 	}
 }
+
+
