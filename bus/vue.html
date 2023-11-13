@@ -13,13 +13,11 @@
 			<gyeonggi></gyeonggi>
 		</div>
 		<script>
-			import { createApp } from 'vue'
-			
-			createApp({
-			    components: {
-				    'gyeonggi':gyeonggi
-			    }
-			  }).mount('#app')
+			var app = Vue.createApp({
+				components: {
+					'gyeonggi':gyeonggi
+				}
+			}).mount('#app')
 		</script>
 	</body>
 </html>
