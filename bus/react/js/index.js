@@ -1,5 +1,3 @@
-import './gyeonggi.js';
-
 class App extends React.Component {
 	render() {
 		return (
