@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Hello Vue.js</title>
+		<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<link rel="stylesheet" href="./css/main.css">
+		<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="./js/gyeonggi.js"></script>
+		<script src="./js/seoul.js"></script>
+	</head>
+	<body>  
+		<div id="app">
+			<gyeonggi></gyeonggi>
+			<hr />
+			<seoul></seoul>
+			<span>서울버스 api 가 https 로 동작하지 않아 mixed content error 발생 : 현재는 샘플데이터 파싱만</span>
+		</div>
+		<script>
+			var app = Vue.createApp({
+				components: {
+					'gyeonggi':gyeonggi,
+					'seoul':seoul
+				}
+			}).mount('#app')
+		</script>
+	</body>
+</html>
