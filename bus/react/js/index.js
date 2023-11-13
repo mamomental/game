@@ -2,7 +2,7 @@
 	render() {
 		return (
 		<div>
-			<h1>Hello readers, Thankyou for reading this blog !</h1>
+			<h1>Hello!</h1>
 		</div>
 		);
 	}
