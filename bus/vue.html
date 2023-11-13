@@ -7,15 +7,19 @@
 		<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 		<script src="./js/vue3/gyeonggi.js"></script>
+		<script src="./js/vue3/seoul.js"></script>
 	</head>
 	<body>  
 		<div id="app">
 			<gyeonggi></gyeonggi>
+			<hr />
+			<seoul></seoul>
 		</div>
 		<script>
 			var app = Vue.createApp({
 				components: {
-					'gyeonggi':gyeonggi
+					'gyeonggi':gyeonggi,
+					'seoul':seoul
 				}
 			}).mount('#app')
 		</script>
