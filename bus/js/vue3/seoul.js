@@ -2,7 +2,7 @@ const seoul = {
 	data() {
 		return {
 			url :
-				'http://ws.bus.go.kr/api/rest/arrive/getArrInfoByRoute'
+				'http://ws.bus.go.kr/api/rest/arrive/getArrInfoByRoute',
 //				'https://mamomental.github.io/game/bus/xml/seoul.xml',
 			tableRow : [],
 			timer : {
