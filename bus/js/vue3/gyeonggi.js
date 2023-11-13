@@ -1,4 +1,4 @@
-export default {
+const gyeonggi = {
   data() {
     return {
 			url : 'https://apis.data.go.kr/6410000/busarrivalservice/getBusArrivalList',
