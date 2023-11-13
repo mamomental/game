@@ -1,8 +1,11 @@
- class App extends React.Component {
+import Gyeonggi from './gyeonggi';
+
+class App extends React.Component {
 	render() {
 		return (
 		<div>
 			<h1>Hello!</h1>
+			<Gyeonggi></Gyeonggi>
 		</div>
 		);
 	}
