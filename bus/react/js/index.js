@@ -1,4 +1,4 @@
-import Gyeonggi from './gyeonggi';
+import Gyeonggi from './gyeonggi.js';
 
 class App extends React.Component {
 	render() {
