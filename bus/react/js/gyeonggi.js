@@ -1,6 +1,11 @@
-import React from "react";
+import React, { Component } from "react";
 
-const Gyeonggi = () => <h1>Gyeonggi</h1>;
+class Gyeonggi extends Component {
+  render() {
+    return (
+      <div>Gyeonggi</div>
+    );
+  }
+}
 
 export default Gyeonggi;
-
