@@ -1,13 +1,13 @@
-import Gyeonggi from './gyeonggi.js';
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
 
-class App extends React.Component {
-	render() {
-		return (
-		<div>
-			<h1>Hello!</h1>
-		</div>
-		);
-	}
-}
+import App from "./App";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const rootElement = document.getElementById("root");
+const root = createRoot(rootElement);
+
+root.render(
+  <StrictMode>
+    <App />
+  </StrictMode>
+);
