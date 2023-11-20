@@ -58,12 +58,20 @@ const seoul = {
 		},
 		parse(list, bus) {
 			for (var i = 0; i < list.length; i++) {
-				this.tableRow.push({
-					'stationName':bus.stationName,
-					'busNo':bus.busNo,
-					'busOrder':(i+1)+'번째',
-					'predictTime':list[i].avgs1
-				});
+				if (list[i].rtnm == bus.rtnm) {
+					this.tableRow.push({
+						'stationName':bus.stationName,
+						'busNo':bus.busNo,
+						'busOrder':'첫번째',
+						'predictTime':list[i].avgs1
+					});
+					this.tableRow.push({
+						'stationName':bus.stationName,
+						'busNo':bus.busNo,
+						'busOrder':'두번째',
+						'predictTime':list[i].avgs2
+					});
+				}
 			}
 		}
 	},
