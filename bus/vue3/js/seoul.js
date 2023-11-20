@@ -3,7 +3,6 @@ const seoul = {
 		return {
 			url :
 				'https://bus.go.kr/sbus/bus/selectBusArrive.do',
-//				'https://mamomental.github.io/game/bus/xml/seoul.xml',
 			tableRow : [],
 			timer : {
 				timer : null,
@@ -51,30 +50,21 @@ const seoul = {
 				params:params
 			})
 			.then(response => {
-				var xml = this.parseXml(response.data);
-				var json = this.xmlToJson(xml, bus);
+				this.parse(response.data.ResponseVO.data.resultList, bus);
 			})
 			.catch(error => {
 			  console.log(error);
 			});
 		},
-		parseXml(xml) {
-			var parser = new DOMParser();
-			return parser.parseFromString(xml, "text/xml");
-		},
-		xmlToJson(xml, bus) {
-			var result = [];
-			var list = xml.getElementsByTagName('resultList');
+		parse(list, bus) {
 			for (var i = 0; i < list.length; i++) {
-				
 				this.tableRow.push({
 					'stationName':bus.stationName,
 					'busNo':bus.busNo,
-					'busOrder':i+'번째',
-					'predictTime':list[i].getElementsByTagName('avgs1')[0].childNodes[0].nodeValue
+					'busOrder':(i+1)+'번째',
+					'predictTime':list[i].avgs1
 				});
 			}
-			return result;
 		}
 	},
 	template: `<span>
