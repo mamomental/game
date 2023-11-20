@@ -39,7 +39,6 @@ const seoul = {
 			for (var i = 0; i < this.buses.length; i++) {
 				var params = {'_dc':this.buses[i].dc,
 					'stopId':this.buses[i].stopId,
-					'rtnm':this.buses[i].rtnm,
 					'ord':this.buses[i].staOrder};
 					
 				this.search(this.url, this.buses[i], params);
@@ -63,13 +62,13 @@ const seoul = {
 						'stationName':bus.stationName,
 						'busNo':bus.busNo,
 						'busOrder':'첫번째',
-						'predictTime':list[i].wavgs1
+						'predictTime':list[i].avgs1
 					});
 					this.tableRow.push({
 						'stationName':bus.stationName,
 						'busNo':bus.busNo,
 						'busOrder':'두번째',
-						'predictTime':list[i].wavgs2
+						'predictTime':list[i].avgs2
 					});
 				}
 			}
