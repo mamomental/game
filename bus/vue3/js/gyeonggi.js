@@ -50,7 +50,7 @@ const gyeonggi = {
 			})
 			.then(response => {
 				var xml = this.parseXml(response.data);
-				var json = this.xmlToJson(xml, bus);
+				this.xmlToJson(xml, bus);
 			})
 			.catch(error => {
 			  console.log(error);
@@ -61,7 +61,6 @@ const gyeonggi = {
 			return parser.parseFromString(xml, "text/xml");
 		},
 		xmlToJson(xml, bus) {
-			var result = [];
 			var list = xml.getElementsByTagName('busArrivalList');
 			for (var i = 0; i < list.length; i++) {
 				if (list[i].getElementsByTagName('routeId')[0].childNodes[0].nodeValue != 'undefined' && list[i].getElementsByTagName('routeId')[0].childNodes[0].nodeValue == bus.routeId) {
@@ -69,7 +68,7 @@ const gyeonggi = {
 						this.tableRow.push({
 							'stationName':bus.stationName,
 							'busNo':bus.busNo,
-							'busOrder':'첫번째',
+							'busOrder':'1번째',
 							'locationNo':list[i].getElementsByTagName('locationNo1')[0].childNodes[0].nodeValue,
 							'predictTime':list[i].getElementsByTagName('predictTime1')[0].childNodes[0].nodeValue,
 							'remainSeatCnt':list[i].getElementsByTagName('remainSeatCnt1')[0].childNodes[0].nodeValue
@@ -79,7 +78,7 @@ const gyeonggi = {
 						this.tableRow.push({
 							'stationName':bus.stationName,
 							'busNo':bus.busNo,
-							'busOrder':'두번째',
+							'busOrder':'2번째',
 							'locationNo':list[i].getElementsByTagName('locationNo2')[0].childNodes[0].nodeValue,
 							'predictTime':list[i].getElementsByTagName('predictTime2')[0].childNodes[0].nodeValue,
 							'remainSeatCnt':list[i].getElementsByTagName('remainSeatCnt2')[0].childNodes[0].nodeValue
@@ -87,7 +86,6 @@ const gyeonggi = {
 					}
 				}
 			}
-			return result;
 		}
 	},
 	template: `<span>
