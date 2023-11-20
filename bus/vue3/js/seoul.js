@@ -2,8 +2,8 @@ const seoul = {
 	data() {
 		return {
 			url :
-//				'http://ws.bus.go.kr/api/rest/arrive/getArrInfoByRoute',
-				'https://mamomental.github.io/game/bus/xml/seoul.xml',
+				'https://bus.go.kr/sbus/bus/selectBusArrive.do',
+//				'https://mamomental.github.io/game/bus/xml/seoul.xml',
 			tableRow : [],
 			timer : {
 				timer : null,
@@ -11,8 +11,8 @@ const seoul = {
 				counter : 0
 			},
 			buses : [
-				{'serviceKey':'gJEu1BoleMqG5NN+QtCILoPjgDq2w13LP1V+zpR5QnCIqy73AGgPYInJcj67U+8T3A7YUPJ88jg423EQriZW8w==','stationName':'위례동주민센터.위례송파푸르지오','busNo':'333','stationId':'123000619','routeId':'100100496','staOrder':'10'},
-				{'serviceKey':'gJEu1BoleMqG5NN+QtCILoPjgDq2w13LP1V+zpR5QnCIqy73AGgPYInJcj67U+8T3A7YUPJ88jg423EQriZW8w==','stationName':'위례동주민센터.위례송파푸르지오','busNo':'440','stationId':'123000619','routeId':'100100459','staOrder':'10'}
+				{'dc':'1700455231801','stationName':'위례동주민센터.위례송파푸르지오','busNo':'333','stopId':'123000619','rtnm':'333'},
+				{'dc':'1700455231801','stationName':'위례동주민센터.위례송파푸르지오','busNo':'440','stopId':'123000619','rtnm':'440'}
 			]
 		}
 	},
@@ -38,9 +38,9 @@ const seoul = {
 		},
 		searchSeoul : function() {
 			for (var i = 0; i < this.buses.length; i++) {
-				var params = {'serviceKey':this.buses[i].serviceKey,
-					'stId':this.buses[i].stationId,
-					'busRouteId':this.buses[i].routeId,
+				var params = {'_dc':this.buses[i].dc,
+					'stopId':this.buses[i].stopId,
+					'rtnm':this.buses[i].rtnm,
 					'ord':this.buses[i].staOrder};
 					
 				this.search(this.url, this.buses[i], params);
@@ -64,19 +64,14 @@ const seoul = {
 		},
 		xmlToJson(xml, bus) {
 			var result = [];
-			var list = xml.getElementsByTagName('itemList');
+			var list = xml.getElementsByTagName('resultList');
 			for (var i = 0; i < list.length; i++) {
+				
 				this.tableRow.push({
 					'stationName':bus.stationName,
 					'busNo':bus.busNo,
-					'busOrder':'첫번째',
-					'predictTime':list[i].getElementsByTagName('arrmsg1')[0].childNodes[0].nodeValue
-				});
-				this.tableRow.push({
-					'stationName':bus.stationName,
-					'busNo':bus.busNo,
-					'busOrder':'두번째',
-					'predictTime':list[i].getElementsByTagName('arrmsg2')[0].childNodes[0].nodeValue
+					'busOrder':i+'번째',
+					'predictTime':list[i].getElementsByTagName('avgs1')[0].childNodes[0].nodeValue
 				});
 			}
 			return result;
