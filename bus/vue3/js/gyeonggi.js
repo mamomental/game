@@ -11,6 +11,7 @@ const gyeonggi = {
 			buses : [
 			{'serviceKey':'gJEu1BoleMqG5NN+QtCILoPjgDq2w13LP1V+zpR5QnCIqy73AGgPYInJcj67U+8T3A7YUPJ88jg423EQriZW8w==','stationName':'화랑공원남편','busNo':'1007','stationId':'206000538','routeId':'234000015','staOrder':'98'},
 			{'serviceKey':'gJEu1BoleMqG5NN+QtCILoPjgDq2w13LP1V+zpR5QnCIqy73AGgPYInJcj67U+8T3A7YUPJ88jg423EQriZW8w==','stationName':'화랑공원남편','busNo':'1009','stationId':'206000538','routeId':'234000310','staOrder':'98'},
+			{'serviceKey':'gJEu1BoleMqG5NN+QtCILoPjgDq2w13LP1V+zpR5QnCIqy73AGgPYInJcj67U+8T3A7YUPJ88jg423EQriZW8w==','stationName':'판교역서편','busNo':'66','stationId':'206000681','routeId':'241255002','staOrder':'98'}
 			]
 		}
 	},
