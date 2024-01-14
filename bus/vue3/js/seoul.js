@@ -77,7 +77,7 @@ const seoul = {
 	template: `<span>
 	<span>{{this.timer.counter}}</span>
 	<table id="bustable">
-		<caption>서울 버스 도착 정보</caption>
+		<caption>서울 버스 출근 정보</caption>
 		<thead>
 			<tr>
 				<th scope="col">정거장</th>
