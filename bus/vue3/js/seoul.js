@@ -1,4 +1,5 @@
 const seoul = {
+	props:['params'],
 	data() {
 		return {
 			url :
