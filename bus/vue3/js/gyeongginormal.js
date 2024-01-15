@@ -14,7 +14,7 @@ const gyeongginormal = {
 	created() {
 		this.tableRow = [];
 		this.startTimer();
-	
+		console.log('create');
 	},
 	mounted : function (){
 		
