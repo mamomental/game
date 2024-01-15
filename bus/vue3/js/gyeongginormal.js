@@ -88,16 +88,14 @@ const gyeongginormal = {
 				<tr>
 					<th scope="col">버스</th>
 					<th scope="col">순서</th>
-					<th scope="col">몇 정거장 전</th>
-					<th scope="col">몇 분 후</th>
+     					<th scope="col">도착 정보</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr v-for="row in tableRow">
 					<th scope="row">{{row.busNo}}번</th>
 					<th scope="row">{{row.busOrder}}</th>
-					<td>{{row.locationNo}}</td>
-					<td>{{row.predictTime}}</td>
+					<td>{{row.predictTime}}분[{{row.locationNo}}번째 전]</td>
 				</tr>
 			</tbody>
 		</table>
