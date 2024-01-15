@@ -13,9 +13,11 @@
 	</head>
 	<body>  
 		<div id="app">
-			<gyeonggi></gyeonggi>
+			<gyeonggi :caption="출근출발"></gyeonggi>
 			<hr />
-			<seoul></seoul>
+			<seoul :caption="퇴근출발"></seoul>
+			<hr />
+			<seoul :caption="퇴근환승"></seoul>
 		</div>
 		<script>
 			var app = Vue.createApp({
