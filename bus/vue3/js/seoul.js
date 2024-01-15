@@ -1,5 +1,5 @@
 const seoul = {
-	props:['caption'],
+	props:['params'],
 	data() {
 		return {
 			url :
@@ -10,11 +10,7 @@ const seoul = {
 				counterBase : 30,
 				counter : 0
 			},
-			buses : [
-				{'dc':'1700455231801','stationName':'위례동주민센터','busNo':'333','stopId':'123000619','rtnm':'333'},
-				{'dc':'1700455231801','stationName':'위례동주민센터','busNo':'440','stopId':'123000619','rtnm':'440'},
-				{'dc':'1700455231801','stationName':'송파더센트레','busNo':'231','stopId':'123000636','rtnm':'231성남'}
-			]
+			buses : this.parmas.buses
 		}
 	},
 	created() {
@@ -79,7 +75,7 @@ const seoul = {
 	template: `<span>
 	<span>{{this.timer.counter}}</span>
 	<table id="bustable">
-		<caption>{{caption}}</caption>
+		<caption>{{params.caption}}</caption>
 		<thead>
 			<tr>
 				<th scope="col">정거장</th>
