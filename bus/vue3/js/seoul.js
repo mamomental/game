@@ -10,7 +10,7 @@ const seoul = {
 				counterBase : 30,
 				counter : 0
 			},
-			buses : this.parmas.buses
+			buses : []
 		}
 	},
 	created() {
