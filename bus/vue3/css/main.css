@@ -29,15 +29,15 @@ tbody tr:hover {
 /* 테이블 비율 */
 th:nth-child(1),
 td:nth-child(1) {
-  width: 5%;
+  width: 7%;
 }
 
 th:nth-child(2),
 td:nth-child(2) {
-  width: 5%;
+  width: 7%;
 }
 
 th:nth-child(3),
 td:nth-child(3) {
-  width: 30%;
+  width: 25%;
 }
