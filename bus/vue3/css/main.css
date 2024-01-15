@@ -6,6 +6,13 @@ table {
   background-color: white;
 }
 
+caption {
+  margin-bottom: 1em;
+  font-size: 1em;
+  font-weight: bold;
+  text-align: center;
+}
+
 /* 테이블 행 */
 th, td {
   padding: 8px;
