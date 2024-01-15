@@ -15,15 +15,25 @@
 		<div id="app">
 			<gyeonggi :caption="출근출발"></gyeonggi>
 			<hr />
-			<seoul :caption="퇴근출발"></seoul>
-			<hr />
-			<seoul :caption="퇴근환승"></seoul>
+			<seoul :params="hometowork"></seoul>
 		</div>
 		<script>
 			var app = Vue.createApp({
 				components: {
 					'gyeonggi':gyeonggi,
 					'seoul':seoul
+				},
+				data() {
+					return {
+						hometowork : {
+							caption : "출근출발",
+							buses : [
+								{'dc':'1700455231801','stationName':'위례동주민센터','busNo':'333','stopId':'123000619','rtnm':'333'},
+								{'dc':'1700455231801','stationName':'위례동주민센터','busNo':'440','stopId':'123000619','rtnm':'440'},
+								{'dc':'1700455231801','stationName':'송파더센트레','busNo':'231','stopId':'123000636','rtnm':'231성남'}
+							]
+						}
+					}
 				}
 			}).mount('#app')
 		</script>
