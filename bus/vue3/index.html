@@ -9,6 +9,7 @@
 		<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 		<script src="./js/gyeonggi.js"></script>
+		<script src="./js/gyeonggi-normal.js"></script>
 		<script src="./js/seoul.js"></script>
 	</head>
 	<body>  
@@ -19,7 +20,7 @@
 			<hr />
 			<gyeonggi :bus="worktohome1"></gyeonggi>
 			<hr />
-			<gyeonggi :bus="worktohome2"></gyeonggi>
+			<gyeongginormal :bus="worktohome2"></gyeongginormal>
 		</div>
 		<script>
 			var app = Vue.createApp({
