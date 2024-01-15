@@ -15,8 +15,6 @@ const seoul = {
 	created() {
 		this.tableRow = [];
 		this.startTimer();
-		console.log(this.bus.caption);
-		console.log(this.bus.buses);
 	},
 	mounted : function (){
 		
@@ -57,13 +55,11 @@ const seoul = {
 			for (var i = 0; i < list.length; i++) {
 				if (list[i].rtnm == bus.rtnm) {
 					this.tableRow.push({
-						'stationName':bus.stationName,
 						'busNo':bus.busNo,
 						'busOrder':'첫번째',
 						'predictTime':list[i].avgs1
 					});
 					this.tableRow.push({
-						'stationName':bus.stationName,
 						'busNo':bus.busNo,
 						'busOrder':'두번째',
 						'predictTime':list[i].avgs2
@@ -75,10 +71,9 @@ const seoul = {
 	template: `<span>
 	<span>{{this.timer.counter}}</span>
 	<table id="bustable">
-		<caption>{{bus.caption}}</caption>
+		<caption>{{bus.stationName}}</caption>
 		<thead>
 			<tr>
-				<th scope="col">정거장</th>
 				<th scope="col">버스</th>
 				<th scope="col">순서</th>
 				<th scope="col">도착 정보</th>
@@ -86,7 +81,6 @@ const seoul = {
 		</thead>
 		<tbody>
 			<tr v-for="row in tableRow">
-				<th scope="row">{{row.stationName}}</th>
 				<th scope="row">{{row.busNo}}번</th>
 				<th scope="row">{{row.busOrder}}</th>
 				<td>{{row.predictTime}}</td>
