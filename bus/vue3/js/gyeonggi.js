@@ -1,5 +1,5 @@
 const gyeonggi = {
-	props:['caption'],
+	props:['bus'],
 	data() {
 		return {
 			url : 'https://apis.data.go.kr/6410000/busarrivalservice/getBusArrivalList',
@@ -8,12 +8,7 @@ const gyeonggi = {
 				timer : null,
 				counterBase : 30,
 				counter : 0
-			},
-			buses : [
-			{'serviceKey':'gJEu1BoleMqG5NN+QtCILoPjgDq2w13LP1V+zpR5QnCIqy73AGgPYInJcj67U+8T3A7YUPJ88jg423EQriZW8w==','stationName':'화랑공원남편','busNo':'1007','stationId':'206000538','routeId':'234000015','staOrder':'98'},
-			{'serviceKey':'gJEu1BoleMqG5NN+QtCILoPjgDq2w13LP1V+zpR5QnCIqy73AGgPYInJcj67U+8T3A7YUPJ88jg423EQriZW8w==','stationName':'화랑공원남편','busNo':'1009','stationId':'206000538','routeId':'234000310','staOrder':'98'},
-			{'serviceKey':'gJEu1BoleMqG5NN+QtCILoPjgDq2w13LP1V+zpR5QnCIqy73AGgPYInJcj67U+8T3A7YUPJ88jg423EQriZW8w==','stationName':'판교역서편','busNo':'66','stationId':'206000681','routeId':'241255002','staOrder':'98'}
-			]
+			}
 		}
 	},
 	created() {
@@ -37,13 +32,13 @@ const gyeonggi = {
 			return interval;
 		},
 		searchGyeonggi : function() {
-			for (var i = 0; i < this.buses.length; i++) {
-				var params = {'serviceKey':this.buses[i].serviceKey,
-					'stationId':this.buses[i].stationId,
-					'routeId':this.buses[i].routeId,
-					'staOrder':this.buses[i].staOrder};
+			for (var i = 0; i < this.bus.buses.length; i++) {
+				var params = {'serviceKey':this.bus.buses[i].serviceKey,
+					'stationId':this.bus.buses[i].stationId,
+					'routeId':this.bus.buses[i].routeId,
+					'staOrder':this.bus.buses[i].staOrder};
 				
-				this.search(this.url, this.buses[i], params);
+				this.search(this.url, this.bus.buses[i], params);
 			}
 		},
 		search : function(url, bus, params) {
@@ -93,7 +88,7 @@ const gyeonggi = {
 	template: `<span>
 		<span>{{this.timer.counter}}</span>
 		<table>
-			<caption>{{caption}}</caption>
+			<caption>{{bus.caption}}</caption>
 			<thead>
 				<tr>
 					<th scope="col">정거장</th>
