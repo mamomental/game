@@ -1,5 +1,5 @@
 const gyeonggi = {
-	props:['params'],
+	props:['caption'],
 	data() {
 		return {
 			url : 'https://apis.data.go.kr/6410000/busarrivalservice/getBusArrivalList',
@@ -93,7 +93,7 @@ const gyeonggi = {
 	template: `<span>
 		<span>{{this.timer.counter}}</span>
 		<table>
-			<caption>경기도 버스 퇴근 정보</caption>
+			<caption>{{caption}}</caption>
 			<thead>
 				<tr>
 					<th scope="col">정거장</th>
