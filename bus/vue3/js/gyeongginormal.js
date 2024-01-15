@@ -14,7 +14,6 @@ const gyeongginormal = {
 	created() {
 		this.tableRow = [];
 		this.startTimer();
-		console.log('create');
 	},
 	mounted : function (){
 		
@@ -58,8 +57,6 @@ const gyeongginormal = {
 			return parser.parseFromString(xml, "text/xml");
 		},
 		xmlToJson(xml, bus) {
-			console.log(xml);
-			console.log(bus);
 			var list = xml.getElementsByTagName('busArrivalList');
 			for (var i = 0; i < list.length; i++) {
 				if (list[i].getElementsByTagName('routeId')[0].childNodes[0].nodeValue != 'undefined' && list[i].getElementsByTagName('routeId')[0].childNodes[0].nodeValue == bus.routeId) {
