@@ -1,5 +1,5 @@
 const seoul = {
-	props:['params'],
+	props:['bus'],
 	data() {
 		return {
 			url :
@@ -9,8 +9,7 @@ const seoul = {
 				timer : null,
 				counterBase : 30,
 				counter : 0
-			},
-			buses : []
+			}
 		}
 	},
 	created() {
@@ -34,12 +33,12 @@ const seoul = {
 			return interval;
 		},
 		searchSeoul : function() {
-			for (var i = 0; i < this.buses.length; i++) {
-				var params = {'_dc':this.buses[i].dc,
-					'stopId':this.buses[i].stopId,
-					'ord':this.buses[i].staOrder};
+			for (var i = 0; i < this.bus.buses.length; i++) {
+				var params = {'_dc':this.bus.buses[i].dc,
+					'stopId':this.bus.buses[i].stopId,
+					'ord':this.bus.buses[i].staOrder};
 					
-				this.search(this.url, this.buses[i], params);
+				this.search(this.url, this.bus.buses[i], params);
 			}
 		},
 		search : function(url, bus, params) {
@@ -75,7 +74,7 @@ const seoul = {
 	template: `<span>
 	<span>{{this.timer.counter}}</span>
 	<table id="bustable">
-		<caption>{{params.caption}}</caption>
+		<caption>{{bus.caption}}</caption>
 		<thead>
 			<tr>
 				<th scope="col">정거장</th>
