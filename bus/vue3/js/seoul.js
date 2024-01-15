@@ -16,7 +16,7 @@ const seoul = {
 	created() {
 		this.tableRow = [];
 		this.startTimer();
-	
+		console.log(this.params);
 	},
 	mounted : function (){
 		
