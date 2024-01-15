@@ -63,7 +63,6 @@ const gyeonggi = {
 				if (list[i].getElementsByTagName('routeId')[0].childNodes[0].nodeValue != 'undefined' && list[i].getElementsByTagName('routeId')[0].childNodes[0].nodeValue == bus.routeId) {
 					if (list[i].getElementsByTagName('locationNo1')[0].childNodes[0].nodeValue != 'undefined') {
 						this.tableRow.push({
-							'stationName':bus.stationName,
 							'busNo':bus.busNo,
 							'busOrder':'첫번째',
 							'locationNo':list[i].getElementsByTagName('locationNo1')[0].childNodes[0].nodeValue,
@@ -73,7 +72,6 @@ const gyeonggi = {
 					}
 					if (list[i].getElementsByTagName('locationNo2')[0].childNodes[0].nodeValue != 'undefined') {
 						this.tableRow.push({
-							'stationName':bus.stationName,
 							'busNo':bus.busNo,
 							'busOrder':'두번째',
 							'locationNo':list[i].getElementsByTagName('locationNo2')[0].childNodes[0].nodeValue,
@@ -88,10 +86,9 @@ const gyeonggi = {
 	template: `<span>
 		<span>{{this.timer.counter}}</span>
 		<table>
-			<caption>{{bus.caption}}</caption>
+			<caption>{{bus.stationName}}</caption>
 			<thead>
 				<tr>
-					<th scope="col">정거장</th>
 					<th scope="col">버스</th>
 					<th scope="col">순서</th>
 					<th scope="col">몇 정거장 전</th>
@@ -101,7 +98,6 @@ const gyeonggi = {
 			</thead>
 			<tbody>
 				<tr v-for="row in tableRow">
-					<th scope="row">{{row.stationName}}</th>
 					<th scope="row">{{row.busNo}}번</th>
 					<th scope="row">{{row.busOrder}}</th>
 					<td>{{row.locationNo}}</td>
