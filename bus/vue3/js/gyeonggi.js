@@ -91,8 +91,8 @@ const gyeonggi = {
 			<tbody>
 				<tr v-for="row in tableRow">
 					<th scope="row">{{row.busNo}}번</th>
-					<td scope="row">{{row.predictTime1}}분[{{row.locationNo1}}번째 전]({{row.remainSeatCnt1}})</th>
-					<td scope="row">{{row.predictTime2}}분[{{row.locationNo2}}번째 전]({{row.remainSeatCnt2}})</th>
+					<td scope="row">{{row.predictTime1}}분[{{row.locationNo1}}번째 전]({{row.remainSeatCnt1}})</td>
+					<td scope="row">{{row.predictTime2}}분[{{row.locationNo2}}번째 전]({{row.remainSeatCnt2}})</td>
 				</tr>
 			</tbody>
 		</table>
