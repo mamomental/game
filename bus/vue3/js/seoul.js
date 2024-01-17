@@ -77,8 +77,8 @@ const seoul = {
 		<tbody>
 			<tr v-for="row in tableRow">
 				<th scope="row">{{row.busNo}}번</th>
-				<th scope="row">{{row.predictTime1}}</th>
-				<th scope="row">{{row.predictTime2}}</th>
+				<td scope="row">{{row.predictTime1}}</th>
+				<td scope="row">{{row.predictTime2}}</th>
 			</tr>
 		</tbody>
 	</table>
