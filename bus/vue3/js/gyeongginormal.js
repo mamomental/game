@@ -64,16 +64,10 @@ const gyeongginormal = {
 						this.tableRow.push({
 							'busNo':bus.busNo,
 							'busOrder':'첫번째',
-							'locationNo':list[i].getElementsByTagName('locationNo1')[0].childNodes[0].nodeValue,
-							'predictTime':list[i].getElementsByTagName('predictTime1')[0].childNodes[0].nodeValue
-						});
-					}
-					if (list[i].getElementsByTagName('locationNo2')[0].childNodes[0].nodeValue != 'undefined') {
-						this.tableRow.push({
-							'busNo':bus.busNo,
-							'busOrder':'두번째',
-							'locationNo':list[i].getElementsByTagName('locationNo2')[0].childNodes[0].nodeValue,
-							'predictTime':list[i].getElementsByTagName('predictTime2')[0].childNodes[0].nodeValue
+							'locationNo1':list[i].getElementsByTagName('locationNo1')[0].childNodes[0].nodeValue,
+							'predictTime1':list[i].getElementsByTagName('predictTime1')[0].childNodes[0].nodeValue,
+							'locationNo2':list[i].getElementsByTagName('locationNo2')[0].childNodes[0].nodeValue,
+							'predictTime2':list[i].getElementsByTagName('predictTime2')[0].childNodes[0].nodeValue
 						});
 					}
 				}
@@ -87,15 +81,15 @@ const gyeongginormal = {
 			<thead>
 				<tr>
 					<th scope="col">버스</th>
-					<th scope="col">순서</th>
-     					<th scope="col">도착 정보</th>
+					<th scope="col">첫번째</th>
+     					<th scope="col">두번째</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr v-for="row in tableRow">
 					<th scope="row">{{row.busNo}}번</th>
-					<th scope="row">{{row.busOrder}}</th>
-					<td>{{row.predictTime}}분[{{row.locationNo}}번째 전]</td>
+     					<td>{{row.predictTime1}}분[{{row.locationNo1}}번째 전]</td>
+					<td>{{row.predictTime2}}분[{{row.locationNo2}}번째 전]</td>
 				</tr>
 			</tbody>
 		</table>
