@@ -56,13 +56,8 @@ const seoul = {
 				if (list[i].rtnm == bus.rtnm) {
 					this.tableRow.push({
 						'busNo':bus.busNo,
-						'busOrder':'첫번째',
-						'predictTime':list[i].avgs1
-					});
-					this.tableRow.push({
-						'busNo':bus.busNo,
-						'busOrder':'두번째',
-						'predictTime':list[i].avgs2
+						'predictTime1':list[i].avgs1,
+						'predictTime2':list[i].avgs2
 					});
 				}
 			}
@@ -75,15 +70,15 @@ const seoul = {
 		<thead>
 			<tr>
 				<th scope="col">버스</th>
-				<th scope="col">순서</th>
-				<th scope="col">도착 정보</th>
+				<th scope="col">첫번째</th>
+				<th scope="col">두번째</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr v-for="row in tableRow">
 				<th scope="row">{{row.busNo}}번</th>
-				<th scope="row">{{row.busOrder}}</th>
-				<td>{{row.predictTime}}</td>
+				<th scope="row">{{row.predictTime1}}</th>
+				<th scope="row">{{row.predictTime2}}</th>
 			</tr>
 		</tbody>
 	</table>
