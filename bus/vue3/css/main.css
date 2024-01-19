@@ -42,9 +42,11 @@ td:nth-child(1) {
 th:nth-child(2),
 td:nth-child(2) {
   width: 46%;
+  background-color: #c8dcc8;
 }
 
 th:nth-child(3),
 td:nth-child(3) {
   width: 46%;
+  background-color: #dcc8dc;
 }
